@@ -29,12 +29,31 @@
 
 ---
 
+## 远程仓库
+
+| 角色 | SSH URL |
+| --- | --- |
+| **WorkSpace 超项目** | `git@github.com:hbzh2008-tech/myChinaTrip.git` |
+| **前端子模块** | `git@github.com:hbzh2008-tech/myChinaTrip-frontend.git` |
+| **后端子模块** | `git@github.com:hbzh2008-tech/myChinaTrip-backend.git` |
+
+HTTPS 克隆可将 `git@github.com:` 换成 `https://github.com/`（路径相同）。
+
 ## 子模块：`frontend/` 与 `backend/`
 
-| 目录 | 远程仓库（当前） | 职责 |
+| 目录 | 挂载路径 | 职责 |
 | --- | --- | --- |
-| `frontend/` | `../ChinaTrip-frontend`（与超项目同级的独立仓库；可改为 GitHub URL） | Web UI、页面与客户端逻辑，调用后端 API |
-| `backend/` | `../ChinaTrip-backend` | HTTP API（Fastify）、领域编排与持久化（规划中） |
+| `frontend/` | Next.js 15（App Router），开发端口 **3000** | Web UI、页面与客户端逻辑，调用后端 API |
+| `backend/` | Fastify 5，开发端口 **3001** | HTTP API、领域编排与持久化（规划中） |
+
+首次在本机挂子模块（空 WorkSpace 或尚未有 `frontend/`、`backend/` 时）：
+
+```bash
+git submodule add git@github.com:hbzh2008-tech/myChinaTrip-frontend.git frontend
+git submodule add git@github.com:hbzh2008-tech/myChinaTrip-backend.git backend
+```
+
+本仓库已完成上述挂载；日常只需 `git submodule update --init --recursive`。
 
 ### Agent 在子模块里改代码前
 
@@ -46,7 +65,7 @@
 
 ```bash
 # 首次克隆（含子模块）
-git clone --recurse-submodules <workspace-repo-url>
+git clone --recurse-submodules git@github.com:hbzh2008-tech/myChinaTrip.git
 
 # 已克隆但未拉子模块
 git submodule update --init --recursive
@@ -118,10 +137,7 @@ ChinaTrip/                 # AI WorkSpace 超项目
 └── WORKFLOW.md            # 固定工作流参考（模板级）
 ```
 
-独立仓库（submodule 源，默认与超项目同级目录）：
-
-- `../ChinaTrip-frontend` → 挂载为 `frontend/`
-- `../ChinaTrip-backend` → 挂载为 `backend/`
+子模块 pin 记录在超项目的 `frontend`、`backend` 两个 gitlink；源码分别在上述两个 GitHub 仓库的 `main` 分支。
 
 ---
 
