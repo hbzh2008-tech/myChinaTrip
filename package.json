@@ -4,10 +4,12 @@
   "version": "0.1.0",
   "description": "China travel planning — full-stack monorepo with OpenSpec harness",
   "scripts": {
-    "dev": "pnpm -r --parallel run dev",
+    "dev": "pnpm --filter @chinatrip/web run dev",
+    "dev:api": "cd backend && gradlew.bat bootRun",
     "build": "pnpm -r run build",
     "typecheck": "pnpm -r run typecheck",
     "test": "pnpm -r run test",
+    "test:api": "cd backend && gradlew.bat test",
     "lint": "pnpm -r run lint"
   },
   "engines": {

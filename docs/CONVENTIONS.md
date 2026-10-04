@@ -7,7 +7,9 @@
 | 安装 | `pnpm install`（根目录） |
 | 类型检查 | `pnpm typecheck` |
 | 测试 | `pnpm test` |
-| 开发 | `pnpm dev` |
+| 开发（Web） | `pnpm dev` |
+| 开发（API） | `pnpm dev:api` 或 `backend/` 下 `gradlew bootRun` |
+| API 测试 | `pnpm test:api` 或 `./init.ps1` |
 | 基线验证 | `./init.ps1` 或 `./init.sh` |
 | OpenSpec | `openspec list` |
 
@@ -27,7 +29,7 @@
 ## 测试
 
 - 默认 TDD（Superpowers 工作流）；单元测试用 Vitest。
-- 集成测试目录（未来）：`apps/api/test/integration/`。
+- 集成测试目录（未来）：`backend/src/test/java/` 下 `*IntegrationTest`。
 - 测试名：`describe` + `it('should ...')` 或 `test_<动作>_<条件>_<期望>`。
 
 ## 提交信息
@@ -44,10 +46,10 @@
 
 ## 错误处理
 
-- API：Fastify 路由内抛出的错误映射为统一 JSON（首个 API change 定义 shape）
-- 禁止空 `catch`；日志用 Fastify logger
+- API：`@RestControllerAdvice` 映射为统一 JSON（首个 API change 定义 shape）
+- 禁止空 `catch`；日志用 SLF4J（Logback 默认）
 
 ## 日志
 
-- API：结构化日志 via Fastify
+- API：Spring Boot 默认 Logback；生产环境 JSON 布局在首个部署 change 引入
 - Web：生产环境避免 `console.log` 泄露 PII

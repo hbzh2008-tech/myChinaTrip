@@ -20,13 +20,25 @@ Write-Host "=== Active OpenSpec changes ==="
 openspec list
 
 Write-Host ""
-Write-Host "=== Install + typecheck + test ==="
+Write-Host "=== Install + typecheck + test (Node) ==="
 if (-not (Get-Command pnpm -ErrorAction SilentlyContinue)) {
     Write-Error "pnpm not installed. Enable via corepack: corepack enable && corepack prepare pnpm@9.15.0 --activate"
 }
 pnpm install
 pnpm typecheck
 pnpm test
+
+Write-Host ""
+Write-Host "=== Backend test (Spring Boot / Gradle) ==="
+if (-not (Test-Path "backend/gradlew.bat")) {
+    Write-Error "backend/gradlew.bat not found — submodule initialized?"
+}
+Push-Location backend
+try {
+    & .\gradlew.bat test
+} finally {
+    Pop-Location
+}
 
 Write-Host ""
 Write-Host "=== Verification complete ==="

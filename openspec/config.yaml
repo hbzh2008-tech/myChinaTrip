@@ -12,9 +12,9 @@ schema: spec-driven
 # composes cleanly.
 # ─────────────────────────────────────────────────────────────────────────────
 context: |
-  Project: ChinaTrip — China travel planning full-stack monorepo (pnpm).
-  Stack: apps/web (Next.js App Router), apps/api (Fastify), packages/shared (Zod + types).
-  Module rule: apps/* may depend on packages/shared; shared must not depend on apps/*.
+  Project: ChinaTrip — China travel planning full-stack monorepo (pnpm + Gradle).
+  Stack: frontend/ (Next.js App Router), backend/ (Spring Boot 3, Java 17), packages/shared (Zod + types).
+  Module rule: frontend may depend on packages/shared; backend mirrors shared JSON contracts in Java DTOs; shared must not depend on frontend or backend.
 
   This project follows the OpenSpec + Superpowers workflow.
 

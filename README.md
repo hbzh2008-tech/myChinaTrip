@@ -22,9 +22,8 @@
 
 ```
 .
-├── apps/
-│   ├── web/                 # Next.js 前端
-│   └── api/                 # Fastify API
+├── frontend/                # Next.js 前端（git submodule）
+├── backend/                 # Spring Boot 3 API（git submodule）
 ├── packages/
 │   └── shared/              # 共享类型与 Zod schema
 ├── docs/                    # 架构 / 产品 / 编码规范
@@ -43,8 +42,9 @@
 
 | 工具 | 用途 |
 | --- | --- |
-| Node.js ≥ 20 | 运行时 |
-| pnpm ≥ 9 | Monorepo |
+| Node.js ≥ 20 | 前端与 shared |
+| pnpm ≥ 9 | JS 工作区 |
+| JDK ≥ 17 | 后端（Gradle Toolchain 可自动 provisioning） |
 | [OpenSpec CLI](https://github.com/Fission-AI/OpenSpec) | 规格与变更管理 |
 | Cursor + Superpowers | 设计与执行 skills |
 
@@ -57,10 +57,11 @@ pnpm install
 ./init.ps1
 ```
 
-开发服务（骨架占位，首个 feature change 后完善）：
+开发服务：
 
 ```powershell
-pnpm dev
+pnpm dev          # Web :3000
+pnpm dev:api      # API :3001（Windows；Unix 见 backend/README.md）
 ```
 
 ---

@@ -22,7 +22,7 @@
 | --- | --- | --- |
 | WorkSpace 壳 | Harness + OpenSpec + pnpm | 仓库根 |
 | 前端（submodule） | Next.js（App Router）+ TypeScript + React | `frontend/` |
-| 后端（submodule） | Fastify + TypeScript | `backend/` |
+| 后端（submodule） | Spring Boot 3 + Java 17 | `backend/` |
 | 共享契约 | Zod + 共享类型 | `packages/shared/` |
 | 规格与变更 | OpenSpec | `openspec/` |
 | AI 工作流 | Cursor `/opsx:*` + Superpowers skills | `.cursor/` |
@@ -44,7 +44,7 @@ HTTPS 克隆可将 `git@github.com:` 换成 `https://github.com/`（路径相同
 | 目录 | 挂载路径 | 职责 |
 | --- | --- | --- |
 | `frontend/` | Next.js 15（App Router），开发端口 **3000** | Web UI、页面与客户端逻辑，调用后端 API |
-| `backend/` | Fastify 5，开发端口 **3001** | HTTP API、领域编排与持久化（规划中） |
+| `backend/` | Spring Boot 3，开发端口 **3001** | HTTP API、领域编排与持久化（JPA/PostgreSQL 规划中） |
 
 首次在本机挂子模块（空 WorkSpace 或尚未有 `frontend/`、`backend/` 时）：
 
@@ -93,6 +93,7 @@ pnpm install
 
 # 开发（frontend :3000，backend :3001）
 pnpm dev
+pnpm dev:api   # 或 backend/ 下 gradlew bootRun
 ```
 
 前置：安装 [OpenSpec CLI](https://github.com/Fission-AI/OpenSpec)（`npm i -g @fission-ai/openspec` 或官方文档方式），并在 Cursor 中启用 Superpowers 相关能力。
@@ -128,7 +129,7 @@ pnpm dev
 ```
 ChinaTrip/                 # AI WorkSpace 超项目
 ├── frontend/              # git submodule — Next.js 前端
-├── backend/               # git submodule — Fastify API
+├── backend/               # git submodule — Spring Boot 3 API
 ├── packages/shared/       # 跨端类型与校验（留在超项目）
 ├── docs/                  # 稳定项目知识（架构、产品、规范）
 ├── openspec/              # 规格与活跃变更

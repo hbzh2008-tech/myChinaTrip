@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-/** 健康检查响应 — Web 与 API 共用契约 */
+/** 健康检查响应 — Web 与 API 共用契约（Java 侧见 backend HealthResponse） */
 export const healthSchema = z.object({
   ok: z.literal(true),
   service: z.string(),
