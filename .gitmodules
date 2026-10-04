@@ -1,6 +1,6 @@
 [submodule "frontend"]
 	path = frontend
-	url = ../ChinaTrip-frontend
+	url = https://github.com/hbzh2008-tech/myChinaTrip-frontend.git
 [submodule "backend"]
 	path = backend
-	url = ../ChinaTrip-backend
+	url = https://github.com/hbzh2008-tech/myChinaTrip-backend.git
