@@ -1,0 +1,6 @@
+[submodule "frontend"]
+	path = frontend
+	url = ../ChinaTrip-frontend
+[submodule "backend"]
+	path = backend
+	url = ../ChinaTrip-backend
