@@ -44,7 +44,7 @@ HTTPS 克隆可将 `git@github.com:` 换成 `https://github.com/`（路径相同
 | 目录 | 挂载路径 | 职责 |
 | --- | --- | --- |
 | `frontend/` | Next.js 15（App Router），开发端口 **3000** | Web UI、页面与客户端逻辑，调用后端 API |
-| `backend/` | Spring Boot 3，开发端口 **3001** | HTTP API、领域编排与持久化（JPA/PostgreSQL 规划中） |
+| `backend/` | Spring Boot 3，开发端口 **3001** | HTTP API、领域编排与持久化（JPA/MySQL 8 规划中） |
 
 首次在本机挂子模块（空 WorkSpace 或尚未有 `frontend/`、`backend/` 时）：
 

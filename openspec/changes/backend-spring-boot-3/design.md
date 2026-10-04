@@ -3,7 +3,7 @@
 ## 架构
 
 - 单模块 Gradle 工程 `chinatrip-api`，包根 `com.chinatrip.api`。
-- 分层约定（随能力增长）：`web`（Controller）→ `service` → `repository`（Spring Data JPA）。
+- 分层约定（随能力增长）：`web`（Controller）→ `service` → `repository`（Spring Data JPA + **MySQL 8**）。
 - 端口 **3001**，与现有前端约定一致。
 
 ## 契约策略

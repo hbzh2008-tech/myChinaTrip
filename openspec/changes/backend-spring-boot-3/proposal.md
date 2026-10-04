@@ -10,7 +10,7 @@
 
 ## 非目标
 
-- 本变更不引入 PostgreSQL / JPA / Spring Security（后续 change）。
+- 本变更不引入 MySQL / JPA / Spring Security（后续 change）。
 - 不删除 `packages/shared`；Web 仍用 Zod，API 用 Java DTO 对齐。
 - 不做微服务拆分。
 

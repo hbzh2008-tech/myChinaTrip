@@ -58,6 +58,6 @@
 
 例：
 
-- 「我们用 PostgreSQL 而不是 MySQL，因为 X」→ `docs/ARCHITECTURE.md`（稳定决策）
+- 「我们用 MySQL 8 而不是 PostgreSQL，因为 X」→ `docs/ARCHITECTURE.md`（稳定决策）
 - 「订单状态机有 7 个状态，转移规则如下」→ `openspec/specs/order/spec.md`（这个能力的契约）
 
